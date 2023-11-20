@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<LandingPage />}></Route>
-        <Route path='/FullPage' element={<FullPage />}></Route>
+        <Route path='/full-page' element={<FullPage />}></Route>
       </Routes>
     </BrowserRouter>
   )
