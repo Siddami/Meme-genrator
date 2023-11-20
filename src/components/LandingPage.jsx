@@ -22,7 +22,7 @@ const LandingPage = () => {
                 className=" text-4xl md:text-6xl inline-block mb-10"
             />
             <button className=" border-2 p-3 rounded-md md:text-lg text-sm">
-                <Link to='./FullPage.jsx'>
+                <Link to='./full-page'>
                     Click Here to Start
                 </Link>
             </button>
