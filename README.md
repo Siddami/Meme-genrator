@@ -1,8 +1,9 @@
-# React + Vite
+# Meme Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Created using React Js and tailwind CSS
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+>The meme Generator generates random images and takes in as input two texts "A bottom text" and "Top text" to create the meme of your choice.
+>
+> The site begines with a landing page where there is the use of a typewriter intro.
+> This was created using [link-text](https://www.npmjs.com/package/react-type-animation)
+>Belowthat is a buttonthat navigates to the main page using the `Link` browser router element.
