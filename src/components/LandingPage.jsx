@@ -23,7 +23,7 @@ const LandingPage = () => {
             />
             <button className=" border-2 p-3 rounded-md md:text-lg text-sm">
                 <Link to='./full-page'>
-                    Click Here to Start
+                    Click Here to Start!
                 </Link>
             </button>
         </section>
