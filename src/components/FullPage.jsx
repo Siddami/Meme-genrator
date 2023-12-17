@@ -1,22 +1,25 @@
-import { useState } from "react"
-import data from "../data"
+import { useEffect, useState } from "react"
 
 const FullPage = () => {
 
-    const [meme, setMeme] = useState({
+   const [meme, setMeme] = useState({
         topText:"",
         bottomText:"",
         randomImage:"/memeimg.svg",
         ImageName:""
     })
+    const [allMemes, setAllMemes] = useState([])
 
-    const [memeImages, setMemeImages] = useState(data);
+    useEffect(()=>{
+        fetch('https://api.imgflip.com/get_memes')
+        .then(res => res.json())
+        .then(data => setAllMemes(data.data.memes))
+    }, [])
 
     const getMemeImage = () => {
-        const memesArray = memeImages.data.memes
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
-        const url = memesArray[randomNumber].url
-        const Imgname = memesArray[randomNumber].name
+        const randomNumber = Math.floor(Math.random() * allMemes.length)
+        const url = allMemes[randomNumber].url
+        const Imgname = allMemes[randomNumber].name
         setMeme(prevMeme => ({
             ...prevMeme,
             randomImage: url,
@@ -68,18 +71,16 @@ const FullPage = () => {
                 </div>
                 <div className="relative text-white mt-8">
                     <img
-                    src={meme.randomImage}
-                    alt={meme.ImageName}
-                    className="flex justify-center items-center max-w-full m-auto rounded p-2" />
+                        src={meme.randomImage}
+                        alt={meme.ImageName}
+                        className="flex justify-center items-center max-w-full m-auto rounded p-2" />
                     <h2
-                        draggable
-                        className="absolute text-center font-bold flex flex-wrap
-                        left-[50%] translate-x-[-50%] my-4 px-1 md:text-2xl uppercase tracking-normal drop-shadow-2xl top-0"
+                        className="absolute font-extrabold
+                        left-[50%] translate-x-[-50%] my-4 px-1 md:text-3xl uppercase top-0 drop-shadow-[40px]"
                     >{meme.topText}</h2>
                     <h2
-                        draggable
-                        className="absolute text-center font-bold flex flex-wrap
-                        left-[50%] translate-x-[-50%] my-4 px-1 md:text-2xl uppercase tracking-normal drop-shadow-2xl bottom-0"
+                        className="absolute font-extrabold
+                        left-[50%] translate-x-[-50%] my-4 px-1 md:text-3xl uppercase bottom-0 drop-shadow-[40px]"
                     >{meme.bottomText}</h2>
                 </div>
             </main>
